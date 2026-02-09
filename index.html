@@ -9,581 +9,105 @@
     <meta property="og:title" content="高市内閣“大勝”後の日本：2026年シナリオ分析" />
     <meta property="og:description" content="自民316議席の衝撃。株高と金利上昇のパラドックスとは？3つの未来シナリオ（経済・安保・社会）で読み解く日本の展望。" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://daiki-ike.github.io/Japan_2026_Post_Election_Analysis/" /> <!-- あなたのURLに合わせて修正済み -->
-    <meta property="og:image" content="https://daiki-ike.github.io/Japan_2026_Post_Election_Analysis/ogp.png" /> <!-- OGP画像用パス -->
+    <meta property="og:url" content="https://daiki-ike.github.io/Japan_2026_Post_Election_Analysis/" />
+    <meta property="og:image" content="https://daiki-ike.github.io/Japan_2026_Post_Election_Analysis/ogp.png" />
     <meta property="og:site_name" content="JAPAN 2026 Report" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* Chart Container Styling - MANDATORY */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-        
-        /* Custom Utilities */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .active-tab {
-            border-bottom: 2px solid #1e3a8a; /* Blue-900 */
-            color: #1e3a8a;
-            font-weight: 700;
-        }
-        .inactive-tab {
-            color: #64748b; /* Slate-500 */
-        }
-        .inactive-tab:hover {
-            color: #1e3a8a;
-        }
-
-        /* OGP Image Generator Style */
-        #ogp-generator {
-            width: 1200px;
-            height: 630px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            display: flex;
-            position: relative;
-            overflow: hidden;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            border: 1px solid #ccc;
-            margin: 20px auto;
-            transform-origin: top left;
-        }
-        /* Scale down for preview on smaller screens */
-        .ogp-preview-wrapper {
-            overflow-x: auto;
-            padding: 20px;
-            background: #333;
-            margin-top: 40px;
-            border-radius: 8px;
-        }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; height: 300px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        .glass-panel { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(0, 0, 0, 0.05); }
+        .active-tab { border-bottom: 2px solid #1e3a8a; color: #1e3a8a; font-weight: 700; }
     </style>
 </head>
 <body class="bg-[#fcfaf7] text-slate-800 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
-
-    <!-- Header Section -->
     <header class="w-full bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-xl md:text-2xl font-bold text-slate-900 tracking-tight">JAPAN 2026 <span class="font-light text-slate-500 text-base ml-2">Post-Election Analysis</span></h1>
             <div class="flex items-center gap-4">
-                <a href="#share-section" class="text-xs bg-blue-600 text-white px-3 py-1 rounded-full hover:bg-blue-700 transition">Share Tool ↓</a>
-                <div class="text-sm font-medium text-slate-500 hidden md:block">2026年2月時点シミュレーション</div>
+                <div class="text-sm font-medium text-slate-500">2026年2月時点シミュレーション</div>
             </div>
         </div>
     </header>
-
     <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
-
-        <!-- Intro -->
         <section class="text-center space-y-4 max-w-3xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">高市内閣“大勝”後の日本：<br>課題と展望のシナリオ</h2>
-            <p class="text-lg text-slate-600 leading-relaxed">
-                2026年2月8日、歴史的な選挙結果を経て日本は新たな局面へ。
-                政治的「超安定」は成長の起爆剤となるか、それとも財政リスクの引き金となるか。
-                データとシナリオで読み解く、日本の現在地と未来。
-            </p>
+            <p class="text-lg text-slate-600 leading-relaxed">2026年2月8日、歴史的な選挙結果を経て日本は新たな局面へ。政治的「超安定」は成長の起爆剤となるか、それとも財政リスクの引き金となるか。</p>
         </section>
-
-        <!-- Section 1: The Mandate (Election Result) -->
         <section class="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-slate-100">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="space-y-4">
                     <div class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold mb-2">FACT CHECK: 2026.02.08</div>
                     <h3 class="text-2xl font-bold text-slate-900">自民単独316議席の衝撃</h3>
-                    <p class="text-slate-600">
-                        衆議院選挙において自由民主党は単独で316議席を獲得。これは定数465の過半数を大きく超え、結党（1955年）以来最多レベルの歴史的勝利となりました。
-                    </p>
-                    <p class="text-slate-600">
-                        協力勢力を加えると352議席に達し、憲法改正の発議要件である「3分の2」を衆議院で確保。法案成立力が飛躍的に高まる一方、チェック機能の低下も懸念されます。
-                    </p>
-                    <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-blue-600 mt-4">
-                        <p class="text-sm font-semibold text-slate-800">POINT: 憲法改正の行方</p>
-                        <p class="text-xs text-slate-600 mt-1">
-                            衆院での圧倒的多数は議論を加速させますが、改正には参院でも3分の2の賛成と、最終的な国民投票が必要です。「改正確定」ではなく「議論・発議の前段」が強化された段階です。
-                        </p>
-                    </div>
+                    <p class="text-slate-600">衆議院選挙において自由民主党は単独で316議席を獲得。これは定数465の過半数を大きく超え、結党以来最多レベルの歴史的勝利となりました。</p>
+                    <p class="text-slate-600">協力勢力を加えると352議席に達し、憲法改正の発議要件である「3分の2」を衆議院で確保。法案成立力が飛躍的に高まる一方、チェック機能の低下も懸念されます。</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <div class="chart-container">
-                        <canvas id="electionChart"></canvas>
-                    </div>
-                    <p class="text-xs text-slate-400 mt-2 text-center">衆議院議席数 (定数 465)</p>
+                    <div class="chart-container"><canvas id="electionChart"></canvas></div>
                 </div>
             </div>
         </section>
-
-        <!-- Section 2: Market Paradox -->
         <section>
-            <div class="mb-6">
-                <h3 class="text-2xl font-bold text-slate-900 mb-2">市場のパラドックス：綱引きする3つの指標</h3>
-                <p class="text-slate-600">選挙直後の市場は「全面的な歓迎」ではなく、成長への期待と財政への懸念が入り混じる複雑な反応を示しています。</p>
-            </div>
+            <div class="mb-6"><h3 class="text-2xl font-bold text-slate-900 mb-2">市場のパラドックス：綱引きする3つの指標</h3></div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- Stock -->
-                <div class="bg-white p-6 rounded-xl border-t-4 border-green-500 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex justify-between items-center mb-4">
-                        <h4 class="font-bold text-slate-700">株式市場</h4>
-                        <span class="text-2xl">📈</span>
-                    </div>
-                    <div class="text-3xl font-extrabold text-green-600 mb-2">最高値更新</div>
-                    <p class="text-sm text-slate-500">政治的安定と成長投資への期待感から、日経平均は上昇基調。</p>
-                </div>
-                <!-- Currency -->
-                <div class="bg-white p-6 rounded-xl border-t-4 border-yellow-500 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex justify-between items-center mb-4">
-                        <h4 class="font-bold text-slate-700">為替 (円)</h4>
-                        <span class="text-2xl">📉</span>
-                    </div>
-                    <div class="text-3xl font-extrabold text-yellow-600">円安進行</div>
-                    <p class="text-sm text-slate-500 mt-2">財政拡張観測により、通貨の信認懸念から円売り圧力が発生。</p>
-                </div>
-                <!-- JGB -->
-                <div class="bg-white p-6 rounded-xl border-t-4 border-red-500 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="flex justify-between items-center mb-4">
-                        <h4 class="font-bold text-slate-700">長期金利 (国債)</h4>
-                        <span class="text-2xl">⚠️</span>
-                    </div>
-                    <div class="text-3xl font-extrabold text-red-600">利回り上昇</div>
-                    <p class="text-sm text-slate-500 mt-2">国債増発への警戒感から価格は下落（金利は上昇）。財政規律が焦点。</p>
-                </div>
+                <div class="bg-white p-6 rounded-xl border-t-4 border-green-500 shadow-sm"><div class="flex justify-between items-center mb-4"><h4 class="font-bold text-slate-700">株式市場</h4><span class="text-2xl">📈</span></div><div class="text-3xl font-extrabold text-green-600 mb-2">最高値更新</div></div>
+                <div class="bg-white p-6 rounded-xl border-t-4 border-yellow-500 shadow-sm"><div class="flex justify-between items-center mb-4"><h4 class="font-bold text-slate-700">為替 (円)</h4><span class="text-2xl">📉</span></div><div class="text-3xl font-extrabold text-yellow-600">円安進行</div></div>
+                <div class="bg-white p-6 rounded-xl border-t-4 border-red-500 shadow-sm"><div class="flex justify-between items-center mb-4"><h4 class="font-bold text-slate-700">長期金利 (国債)</h4><span class="text-2xl">⚠️</span></div><div class="text-3xl font-extrabold text-red-600">利回り上昇</div></div>
             </div>
         </section>
-
-        <!-- Section 3: Scenario Explorer (Interactive) -->
         <section class="bg-slate-900 text-white rounded-2xl shadow-xl overflow-hidden">
             <div class="p-8">
-                <div class="md:flex md:justify-between md:items-end mb-8">
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">未来シナリオ・シミュレーター</h3>
-                        <p class="text-slate-400 text-sm md:text-base max-w-2xl">
-                            高市内閣の政策（物価高対策・成長投資・経済安保）を前提とした場合、どのような未来が考えられるか。
-                            3つの重要領域について、ポジティブ・ネガティブ両面の可能性を探ります。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Tabs -->
+                <div class="md:flex md:justify-between md:items-end mb-8"><div><h3 class="text-2xl md:text-3xl font-bold text-white mb-2">未来シナリオ・シミュレーター</h3></div></div>
                 <div class="flex space-x-1 bg-slate-800 p-1 rounded-lg mb-6 overflow-x-auto">
-                    <button onclick="switchTab('economy')" id="tab-economy" class="flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors bg-blue-600 text-white shadow-sm">
-                        1. 経済・財政
-                    </button>
-                    <button onclick="switchTab('diplomacy')" id="tab-diplomacy" class="flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-700">
-                        2. 外交・安保
-                    </button>
-                    <button onclick="switchTab('society')" id="tab-society" class="flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-700">
-                        3. 社会・内政
-                    </button>
+                    <button onclick="switchTab('economy')" id="tab-economy" class="flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors bg-blue-600 text-white shadow-sm">1. 経済・財政</button>
+                    <button onclick="switchTab('diplomacy')" id="tab-diplomacy" class="flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-700">2. 外交・安保</button>
+                    <button onclick="switchTab('society')" id="tab-society" class="flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-700">3. 社会・内政</button>
                 </div>
-
-                <!-- Content Area -->
-                <div id="scenario-content" class="min-h-[300px]">
-                    <!-- Dynamic Content Loaded via JS -->
-                </div>
+                <div id="scenario-content" class="min-h-[300px]"></div>
             </div>
         </section>
-
-        <!-- Section 4: Key Policies -->
-        <section>
-            <div class="mb-6">
-                <h3 class="text-2xl font-bold text-slate-900">注目の政策と戦略分野</h3>
-                <p class="text-slate-600">選挙戦で争点となった主要政策と、政府が掲げる「戦略分野群」。</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <!-- Policy Card 1 -->
-                <div class="glass-panel p-5 rounded-lg border border-slate-200">
-                    <div class="text-blue-600 text-xl mb-2">🛒</div>
-                    <h4 class="font-bold text-slate-800 mb-2">食料品消費税ゼロ</h4>
-                    <p class="text-xs text-slate-500 mb-2">2年間の時限措置</p>
-                    <p class="text-sm text-slate-600">実質可処分所得を下支えし、消費腰折れを防ぐ狙い。財源と出口戦略が課題。</p>
-                </div>
-                 <!-- Policy Card 2 -->
-                 <div class="glass-panel p-5 rounded-lg border border-slate-200">
-                    <div class="text-blue-600 text-xl mb-2">⛽</div>
-                    <h4 class="font-bold text-slate-800 mb-2">ガソリン税率廃止</h4>
-                    <p class="text-xs text-slate-500 mb-2">暫定税率の扱い</p>
-                    <p class="text-sm text-slate-600">輸送コスト低減に寄与。法改正や実施時期（軽油との兼ね合い）に注目。</p>
-                </div>
-                 <!-- Policy Card 3 -->
-                 <div class="glass-panel p-5 rounded-lg border border-slate-200">
-                    <div class="text-blue-600 text-xl mb-2">🚧</div>
-                    <h4 class="font-bold text-slate-800 mb-2">年収の壁 178万円</h4>
-                    <p class="text-xs text-slate-500 mb-2">国民民主との合意</p>
-                    <p class="text-sm text-slate-600">労働供給の歪みを是正。就労調整を減らし人手不足解消へ。</p>
-                </div>
-                 <!-- Policy Card 4 -->
-                 <div class="glass-panel p-5 rounded-lg border border-slate-200">
-                    <div class="text-blue-600 text-xl mb-2">🛡️</div>
-                    <h4 class="font-bold text-slate-800 mb-2">危機管理投資</h4>
-                    <p class="text-xs text-slate-500 mb-2">経済安全保障</p>
-                    <p class="text-sm text-slate-600">供給力強化と安保をセットにした官民投資。地方分散も視野に。</p>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl border border-slate-200">
-                <h4 class="font-bold text-slate-800 mb-4 text-center">戦略分野群（投資重点領域）</h4>
-                <div class="flex flex-wrap justify-center gap-3">
-                    <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-100">AI・半導体</span>
-                    <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-100">量子技術</span>
-                    <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-100">バイオ・創薬</span>
-                    <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-100">宇宙・海洋</span>
-                    <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-100">造船</span>
-                    <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-100">次世代エネルギー</span>
-                    <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full text-sm font-semibold border border-indigo-100">サイバーセキュリティ</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 5: Timeline & Watchlist -->
         <section class="grid md:grid-cols-2 gap-8">
-            <!-- Timeline -->
             <div class="space-y-4">
                 <h3 class="text-xl font-bold text-slate-900">時間軸の分岐点</h3>
                 <div class="relative border-l-2 border-slate-200 ml-3 space-y-8 py-2">
-                    <div class="ml-6 relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-white"></span>
-                        <h4 class="font-bold text-slate-800">短期 (2026年)</h4>
-                        <p class="text-sm text-slate-600 mt-1">
-                            <span class="font-semibold text-blue-600">モメンタム重視。</span><br>
-                            政策実行スピードが速いほど株式には追い風。ただし、国債・為替市場は財政運営の説明力に極めて敏感に反応する時期。
-                        </p>
-                    </div>
-                    <div class="ml-6 relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-400 ring-4 ring-white"></span>
-                        <h4 class="font-bold text-slate-800">中長期 (2027年以降)</h4>
-                        <p class="text-sm text-slate-600 mt-1">
-                            <span class="font-semibold text-blue-600">一貫性重視。</span><br>
-                            減税・投資の出口戦略（平時化）、制度改革による税収増、PB等の目標管理が問われる。財政規律への信認が維持できるかが鍵。
-                        </p>
-                    </div>
+                    <div class="ml-6 relative"><span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-white"></span><h4 class="font-bold text-slate-800">短期 (2026年)</h4><p class="text-sm text-slate-600 mt-1">モメンタム重視。株式には追い風だが、金利・為替は敏感に反応する時期。</p></div>
+                    <div class="ml-6 relative"><span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-400 ring-4 ring-white"></span><h4 class="font-bold text-slate-800">中長期 (2027年以降)</h4><p class="text-sm text-slate-600 mt-1">一貫性重視。出口戦略と財政規律への信認が鍵。</p></div>
                 </div>
             </div>
-
-            <!-- Watchlist -->
             <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
                 <h3 class="text-xl font-bold text-slate-900 mb-4">今後注視すべき観測指標</h3>
                 <ul class="space-y-3">
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-2">●</span>
-                        <div class="text-sm"><span class="font-bold text-slate-700">長期金利 (JGB):</span> 上昇要因が「成長期待」か「財政不信」かの見極め。</div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-2">●</span>
-                        <div class="text-sm"><span class="font-bold text-slate-700">為替 (円):</span> 円安が輸入物価を通じて実質賃金を圧迫していないか。</div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-2">●</span>
-                        <div class="text-sm"><span class="font-bold text-slate-700">実質賃金・消費:</span> 物価高対策（減税）の効果検証の最終スコア。</div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-2">●</span>
-                        <div class="text-sm"><span class="font-bold text-slate-700">補正・本予算の構成:</span> 投資と給付のバランス。恒久化リスクの有無。</div>
-                    </li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2">●</span><div class="text-sm"><span class="font-bold text-slate-700">長期金利 (JGB):</span> 「成長期待」か「財政不信」か</div></li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2">●</span><div class="text-sm"><span class="font-bold text-slate-700">為替 (円):</span> 実質賃金への圧迫度合い</div></li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2">●</span><div class="text-sm"><span class="font-bold text-slate-700">実質賃金・消費:</span> 減税策の効果検証</div></li>
                 </ul>
             </div>
         </section>
-
-        <!-- SHARE / OGP GENERATION SECTION -->
-        <section id="share-section" class="pt-12 border-t border-slate-200 mt-12">
-            <h3 class="text-xl font-bold text-slate-900 mb-4">📢 Facebook/SNSシェア用素材</h3>
-            <p class="text-slate-600 text-sm mb-4">
-                以下の画像をスクリーンショットして保存し、OGP画像（シェア時のサムネイル）として使用してください。<br>
-                その後、HTML内の <code>og:image</code> タグに画像のURLを指定してください。
-            </p>
-            
-            <div class="ogp-preview-wrapper">
-                <!-- This div simulates a 1200x630px OGP Image -->
-                <div id="ogp-generator">
-                    <!-- Left Side: Text -->
-                    <div style="width: 60%; padding: 60px; display: flex; flex-direction: column; justify-content: center;">
-                        <div style="font-weight: bold; color: #64748b; letter-spacing: 0.1em; margin-bottom: 20px; font-size: 24px;">REPORT: FEB 2026</div>
-                        <h1 style="font-size: 64px; font-weight: 900; line-height: 1.1; color: #0f172a; margin-bottom: 30px;">
-                            高市内閣<br>
-                            <span style="color: #2563eb;">“大勝”後</span>の日本
-                        </h1>
-                        <p style="font-size: 28px; color: #475569; line-height: 1.5;">
-                            自民単独316議席。<br>
-                            株高と金利上昇が示す<br>
-                            「成長と財政」の分岐点。
-                        </p>
-                    </div>
-                    
-                    <!-- Right Side: Visuals -->
-                    <div style="width: 40%; background: #1e293b; display: flex; align-items: center; justify-content: center; position: relative;">
-                        <!-- Simple visual representation for OGP -->
-                        <div style="text-align: center; color: white;">
-                            <div style="font-size: 140px; font-weight: 900; line-height: 1; color: #3b82f6;">316</div>
-                            <div style="font-size: 32px; font-weight: bold; color: #94a3b8; margin-bottom: 40px;">SEATS / 465</div>
-                            
-                            <div style="display: flex; gap: 20px; justify-content: center;">
-                                <div style="background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 10px;">
-                                    <div style="font-size: 30px;">📈</div>
-                                    <div style="font-size: 14px; margin-top: 5px; color: #cbd5e1;">STOCK</div>
-                                </div>
-                                <div style="background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 10px;">
-                                    <div style="font-size: 30px;">📉</div>
-                                    <div style="font-size: 14px; margin-top: 5px; color: #cbd5e1;">YEN</div>
-                                </div>
-                                <div style="background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 10px;">
-                                    <div style="font-size: 30px;">⚠️</div>
-                                    <div style="font-size: 14px; margin-top: 5px; color: #cbd5e1;">JGB</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
-
     <footer class="bg-white border-t border-slate-200 py-8 mt-12">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <p class="text-slate-400 text-sm">Based on 2026 Simulation Scenario Report.</p>
         </div>
     </footer>
-
     <script>
-        // Data Store
         const scenarioData = {
-            economy: {
-                title: "経済政策：成長と財政の天秤",
-                desc: "「危機管理投資・成長投資」と「物価高対策」の両立がテーマ。減税・補助・投資の同時拡張がもたらす結果は？",
-                positive: {
-                    label: "好循環シナリオ",
-                    points: [
-                        "政策の予見可能性向上により、企業の設備投資が前倒しで加速。",
-                        "食料品消費税ゼロ等が実質可処分所得を支え、消費減退を回避。",
-                        "戦略分野への投資が地方分散（クラスター化）し、賃上げと生産性が向上。",
-                        "「年収の壁」見直しにより労働供給の歪みが解消、人手不足が緩和。"
-                    ]
-                },
-                negative: {
-                    label: "副作用シナリオ",
-                    points: [
-                        "国債増発観測により利回り上昇→利払い増の「財政自己増殖」リスク。",
-                        "円安進行による輸入物価高止まりで「実質賃金が追いつかないインフレ」が長期化。",
-                        "対策が「広く薄く」なり財源説明が不足すると、市場（為替・国債）がボラティリティを高める。",
-                        "ガソリン税率廃止などの期待先行に対し、実施時期のズレで反動減が発生。"
-                    ]
-                }
-            },
-            diplomacy: {
-                title: "外交・安保：抑止と摩擦",
-                desc: "安全保障の強化は国内支持を得やすいが、対外摩擦コストとのバランスが問われる。",
-                positive: {
-                    label: "抑止・安定シナリオ",
-                    points: [
-                        "対米協調を軸に抑止力を整備し、地政学危機の発生確率を低下させる。",
-                        "防衛・サプライチェーン投資が「保険」として機能し、日本への企業投資を支える。",
-                        "外交において摩擦領域と協力領域を巧みに分離し、経済被害を最小化。"
-                    ]
-                },
-                negative: {
-                    label: "摩擦コスト増大シナリオ",
-                    points: [
-                        "近隣諸国との緊張が高まり、観光・輸出・企業心理に悪影響。",
-                        "同盟国からの負担要求（防衛費・通商）が強まり、国内財政・世論との板挟み。",
-                        "強硬姿勢が国内結束には効いても、国際投資家の「地政学リスクプレミアム」を引き上げる。"
-                    ]
-                }
-            },
-            society: {
-                title: "社会・内政：改革か先送りか",
-                desc: "政治的超安定は、痛みを伴う改革のチャンスでもあり、チェック機能不全のリスクでもある。",
-                positive: {
-                    label: "構造改革断行シナリオ",
-                    points: [
-                        "労働市場の歪み（年収の壁等）にテコ入れし、供給制約を緩和。",
-                        "物価対策を「減税＋ターゲット給付」に絞り込み、効率化。",
-                        "行政DX・規制改革が進み、成長投資の実効リターンを高める。"
-                    ]
-                },
-                negative: {
-                    label: "改革先送りシナリオ",
-                    points: [
-                        "目立つ政策（減税・大型投資）が優先され、少子化・社会保障など「時間のかかる改革」が後回し。",
-                        "野党弱体化で検証が甘くなり、政策の失敗（非効率な補助金等）が遅れて発覚。",
-                        "外国人政策などの繊細な設計がおろそかになり、社会的分断の火種に。"
-                    ]
-                }
-            }
+            economy: { title: "経済政策：成長と財政の天秤", desc: "成長投資と物価対策の両立。減税・投資拡張の結果は？", positive: { label: "好循環", points: ["設備投資の前倒し加速", "消費税ゼロで消費下支え"] }, negative: { label: "副作用", points: ["国債増発で利回り上昇", "円安による輸入物価高"] } },
+            diplomacy: { title: "外交・安保：抑止と摩擦", desc: "抑止力強化と対外摩擦コストのバランス。", positive: { label: "安定", points: ["対米協調で危機回避", "防衛投資が国内還流"] }, negative: { label: "摩擦", points: ["近隣国緊張で観光減", "同盟国の負担要求増"] } },
+            society: { title: "社会・内政：改革か先送りか", desc: "政治的超安定は改革の好機か、チェック不全か。", positive: { label: "断行", points: ["年収の壁見直し", "行政DXと規制改革"] }, negative: { label: "先送り", points: ["少子化対策の後回し", "政策検証の甘さ"] } }
         };
-
-        // Current State
-        let currentTab = 'economy';
-
-        // DOM Elements
-        const contentContainer = document.getElementById('scenario-content');
-        
-        // Functions
+        let currentTab = 'economy'; const contentContainer = document.getElementById('scenario-content');
         function renderScenario() {
-            const data = scenarioData[currentTab];
-            
-            // Animation reset
-            contentContainer.style.opacity = '0';
-            
+            const data = scenarioData[currentTab]; contentContainer.style.opacity = '0';
             setTimeout(() => {
-                contentContainer.innerHTML = `
-                    <div class="mb-6 border-b border-slate-700 pb-4">
-                        <h4 class="text-xl font-bold text-white mb-2">${data.title}</h4>
-                        <p class="text-slate-400">${data.desc}</p>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Positive Column -->
-                        <div class="bg-slate-800 rounded-xl p-5 border border-slate-700">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2">POSITIVE</span>
-                                <h5 class="font-bold text-blue-100">${data.positive.label}</h5>
-                            </div>
-                            <ul class="space-y-3">
-                                ${data.positive.points.map(point => `
-                                    <li class="flex items-start text-sm text-slate-300">
-                                        <span class="text-blue-500 mr-2 mt-1">✔</span>
-                                        <span>${point}</span>
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
-                        
-                        <!-- Negative Column -->
-                        <div class="bg-slate-800 rounded-xl p-5 border border-slate-700">
-                            <div class="flex items-center mb-4">
-                                <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mr-2">NEGATIVE</span>
-                                <h5 class="font-bold text-red-100">${data.negative.label}</h5>
-                            </div>
-                            <ul class="space-y-3">
-                                ${data.negative.points.map(point => `
-                                    <li class="flex items-start text-sm text-slate-300">
-                                        <span class="text-red-500 mr-2 mt-1">⚠</span>
-                                        <span>${point}</span>
-                                    </li>
-                                `).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                `;
+                contentContainer.innerHTML = `<div class="mb-6 border-b border-slate-700 pb-4"><h4 class="text-xl font-bold text-white mb-2">${data.title}</h4><p class="text-slate-400">${data.desc}</p></div><div class="grid md:grid-cols-2 gap-6"><div class="bg-slate-800 rounded-xl p-5 border border-slate-700"><div class="flex items-center mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2">POS</span><h5 class="font-bold text-blue-100">${data.positive.label}</h5></div><ul class="space-y-3">${data.positive.points.map(p => `<li class="flex items-start text-sm text-slate-300"><span class="text-blue-500 mr-2">✔</span>${p}</li>`).join('')}</ul></div><div class="bg-slate-800 rounded-xl p-5 border border-slate-700"><div class="flex items-center mb-4"><span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mr-2">NEG</span><h5 class="font-bold text-red-100">${data.negative.label}</h5></div><ul class="space-y-3">${data.negative.points.map(p => `<li class="flex items-start text-sm text-slate-300"><span class="text-red-500 mr-2">⚠</span>${p}</li>`).join('')}</ul></div></div>`;
                 contentContainer.style.opacity = '1';
-                contentContainer.style.transition = 'opacity 0.3s ease-in-out';
             }, 200);
         }
-
-        function switchTab(tabId) {
-            currentTab = tabId;
-            
-            // Update Tab Styles
-            ['economy', 'diplomacy', 'society'].forEach(id => {
-                const el = document.getElementById(`tab-${id}`);
-                if (id === tabId) {
-                    el.className = "flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors bg-blue-600 text-white shadow-sm";
-                } else {
-                    el.className = "flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-700";
-                }
-            });
-
-            renderScenario();
-        }
-
-        // Initialize Charts
-        window.addEventListener('load', function() {
-            // Render Initial Scenario
-            renderScenario();
-
-            // Election Results Chart
-            const ctx = document.getElementById('electionChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['自民単独 (316)', '連立他 (36)', '野党他 (113)'],
-                    datasets: [{
-                        data: [316, 36, 113],
-                        backgroundColor: [
-                            '#1e3a8a', // LDP Blue
-                            '#3b82f6', // Coalition Light Blue
-                            '#cbd5e1'  // Others Grey
-                        ],
-                        borderWidth: 0,
-                        hoverOffset: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '60%',
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                padding: 20,
-                                usePointStyle: true
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: '衆議院 議席内訳 (Total: 465)',
-                            padding: { bottom: 10 }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    let value = context.raw;
-                                    let percentage = Math.round((value / 465) * 100) + '%';
-                                    return label + value + '議席 (' + percentage + ')';
-                                }
-                            }
-                        }
-                    }
-                },
-                plugins: [{
-                    id: 'textCenter',
-                    beforeDraw: function(chart) {
-                        var width = chart.width,
-                            height = chart.height,
-                            ctx = chart.ctx;
-                        
-                        ctx.restore();
-                        var fontSize = (height / 114).toFixed(2);
-                        ctx.font = "bold " + fontSize + "em sans-serif";
-                        ctx.textBaseline = "middle";
-                        ctx.fillStyle = "#1e3a8a";
-                        
-                        var text = "316",
-                            textX = Math.round((width - ctx.measureText(text).width) / 2),
-                            textY = height / 2; // Center exactly
-                        
-                        ctx.fillText(text, textX, textY - 10);
-
-                        var fontSize2 = (height / 250).toFixed(2);
-                        ctx.font = fontSize2 + "em sans-serif";
-                        ctx.fillStyle = "#64748b";
-                        var text2 = "自民単独",
-                            text2X = Math.round((width - ctx.measureText(text2).width) / 2);
-                        ctx.fillText(text2, text2X, textY + 20);
-
-                        ctx.save();
-                    }
-                }]
-            });
-        });
+        function switchTab(id) { currentTab = id; ['economy', 'diplomacy', 'society'].forEach(t => document.getElementById('tab-'+t).className = t===id ? "flex-1 py-2 px-4 rounded-md text-sm font-medium bg-blue-600 text-white shadow-sm" : "flex-1 py-2 px-4 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700"); renderScenario(); }
+        window.addEventListener('load', function() { renderScenario(); const ctx = document.getElementById('electionChart').getContext('2d'); new Chart(ctx, { type: 'doughnut', data: { labels: ['自民単独', '連立他', '野党他'], datasets: [{ data: [316, 36, 113], backgroundColor: ['#1e3a8a', '#3b82f6', '#cbd5e1'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '60%' } }); });
     </script>
 </body>
 </html>
